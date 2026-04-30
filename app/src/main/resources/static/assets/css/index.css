@@ -1,53 +1,176 @@
-/* this is the style sheet file for index.htlm  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* 
-**Global Reset (`*`)**
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
 
-* Remove all default margin and padding.
-* Use `border-box` for sizing to include padding and border in element size.
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-**Base (`html, body`)**
+.main-content {
+  flex: 1;
+  background-image: url("../images/defineRole/index.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  background-attachment: fixed;
+  justify-content: center;
+  align-items: center;
+}
 
-* Set height to 100% for full viewport layout.
-* Use the `'Roboto'` sans-serif font for modern, clean typography.
+.container {
+  width: 100%;
+}
 
-**Layout Wrapper (`.wrapper`)**
+#roleSelectionSection {
+  text-align: center;
+}
 
-* Use a vertical flexbox layout.
-* Ensure the wrapper covers at least the full height of the screen (`min-height: 100vh`).
+h2 {
+  font-size: 36px;
+  color: #222;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 30px;
+}
 
-**Heading (`h2`)**
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  margin: 10px;
+}
 
-* Set a large font size (`48px`) for prominence.
-* Add a bottom margin of `50px` for spacing.
-* Use a dark teal color (`#003e3e`).
-* Make the font bold and use a blended font stack (`'Alegreya', 'Roboto', sans-serif`) for elegant styling.
+button:hover {
+  background-color: #0056b3;
+}
 
-**Main Section (`.main-content`)**
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid #007bff;
+}
 
-* Allow the section to grow to fill space with `flex-grow: 1`.
-* Add `40px` of internal padding.
-* Center content both horizontally and vertically using `justify-content` and `align-items`.
-* Display items in a column direction.
-* Center all text.
-* Apply a full-screen background image with:
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
-  * `cover` size
-  * `center` positioning
-  * no repeat
-  * `fixed` attachment to keep image still during scroll
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 50%;
+  border-radius: 6px;
+  position: relative;
+}
 
-**Buttons (`button`)**
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  color: #000;
+  font-size: 24px;
+  padding: 0;
+}
 
-* Style with a teal green background (`#015c5d`) and white text.
-* Remove borders and round the corners (`12px`).
-* Use `10px 20px` padding and set width to `200px`.
-* Add a top margin of `10px` for spacing.
-* Enable pointer cursor and readable font size (`16px`).
-* On hover, change background color to bold red (`#A62B1F`).
+.close:hover {
+  color: #007bff;
+  background: none;
+}
 
-**Dashboard Buttons (`.dashboard-btn`)**
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
 
-* Use the same base green background (`#015c5d`) as the default button.
-* On hover, darken the background to deep teal (`#003e3e`) for visual feedback.
- */
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: #222;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.dashboard-btn {
+  background-color: #28a745;
+}
+
+.dashboard-btn:hover {
+  background-color: #1e7e34;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+}
+
+.select-dropdown {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .header,
+  .footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+}
